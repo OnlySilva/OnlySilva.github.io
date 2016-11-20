@@ -6,21 +6,18 @@
   <title>ES6-study(二) | 新手的学习记录</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="来源：http://es6.ruanyifeng.com/#docs/destructuring
-变量的解构赋值数组的解构赋值es6允许下面var [a,b,c] = [1,2,3];本质上属于模式匹配，只要等号两边的模式相同，左边的变量就会赋予对应的值。123let [head, ...tail] = [1, 2, 3, 4];head // 1tail // [2, 3, 4]
-结构不成功，就">
+变量的解构赋值数组的解构赋值es6允许下面var [a,b,c] = [1,2,3];本质上属于模式匹配，只要等号两边的模式相同，左边的变量就会赋予对应的值。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6-study(二)">
 <meta property="og:url" content="http://yoursite.com/2016/11/18/ES6-study-2/index.html">
 <meta property="og:site_name" content="新手的学习记录">
 <meta property="og:description" content="来源：http://es6.ruanyifeng.com/#docs/destructuring
-变量的解构赋值数组的解构赋值es6允许下面var [a,b,c] = [1,2,3];本质上属于模式匹配，只要等号两边的模式相同，左边的变量就会赋予对应的值。123let [head, ...tail] = [1, 2, 3, 4];head // 1tail // [2, 3, 4]
-结构不成功，就">
-<meta property="og:updated_time" content="2016-11-20T11:45:14.159Z">
+变量的解构赋值数组的解构赋值es6允许下面var [a,b,c] = [1,2,3];本质上属于模式匹配，只要等号两边的模式相同，左边的变量就会赋予对应的值。">
+<meta property="og:updated_time" content="2016-11-20T12:11:45.483Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6-study(二)">
 <meta name="twitter:description" content="来源：http://es6.ruanyifeng.com/#docs/destructuring
-变量的解构赋值数组的解构赋值es6允许下面var [a,b,c] = [1,2,3];本质上属于模式匹配，只要等号两边的模式相同，左边的变量就会赋予对应的值。123let [head, ...tail] = [1, 2, 3, 4];head // 1tail // [2, 3, 4]
-结构不成功，就">
+变量的解构赋值数组的解构赋值es6允许下面var [a,b,c] = [1,2,3];本质上属于模式匹配，只要等号两边的模式相同，左边的变量就会赋予对应的值。">
   
     <link rel="alternate" href="/atom.xml" title="新手的学习记录" type="application/atom+xml">
   
@@ -58,9 +55,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -92,7 +89,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>来源：<a href="http://es6.ruanyifeng.com/#docs/destructuring" target="_blank" rel="external">http://es6.ruanyifeng.com/#docs/destructuring</a></p>
-<h2 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h2><h3 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h3><p>es6允许下面<br><code>var [a,b,c] = [1,2,3];</code><br>本质上属于模式匹配，只要等号两边的模式相同，左边的变量就会赋予对应的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let [head, ...tail] = [1, 2, 3, 4];</div><div class="line">head // 1</div><div class="line">tail // [2, 3, 4]</div></pre></td></tr></table></figure></p>
+<h2 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h2><h3 id="数组的解构赋值"><a href="#数组的解构赋值" class="headerlink" title="数组的解构赋值"></a>数组的解构赋值</h3><p>es6允许下面<br><code>var [a,b,c] = [1,2,3];</code><br>本质上属于模式匹配，只要等号两边的模式相同，左边的变量就会赋予对应的值。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let [head, ...tail] = [1, 2, 3, 4];</div><div class="line">head // 1</div><div class="line">tail // [2, 3, 4]</div></pre></td></tr></table></figure></p>
 <p>结构不成功，就为undefined。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var [foo] = [];//foo:undefined</div><div class="line">var [bar, foo] = [1];//foo:undefined</div></pre></td></tr></table></figure></p>
 <p>右边不是数组（没有Iterator接口），就会报错。<br>解构赋值允许指定默认值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var [foo = true] = [];</div><div class="line">foo//true</div><div class="line">[x,y=&apos;b&apos;] = [&apos;a&apos;,undefined]//y=&apos;b&apos;</div></pre></td></tr></table></figure></p>
 <p>es6内部使用严格相等运算符。<br><code>var [x=1] = [null];//x=null</code><br>如果默认值是表达式，那么用到的时候才会求值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function f() &#123;</div><div class="line">    console.log(&apos;aaa&apos;);</div><div class="line">&#125;</div><div class="line">let [x = f()] = [1];</div><div class="line">x:1</div></pre></td></tr></table></figure></p>
@@ -106,7 +103,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/18/ES6-study-2/" data-id="civqlpilw00029wwhix9uwmdz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/18/ES6-study-2/" data-id="civqls5g400020swhowy0eano" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -116,17 +113,17 @@
 <nav id="article-nav">
   
     <a href="/2016/11/20/ES6-Study-1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Récent</strong>
       <div class="article-nav-title">
         
-          ES6-Study-1
+          ES6-study(二)
         
       </div>
     </a>
   
   
     <a href="/2016/11/17/JavaScript-design-pattern-chapter-1/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">JavaScript design pattern chapter 1</div>
     </a>
   
@@ -159,12 +156,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2016/11/20/ES6-Study-1/">ES6-Study-1</a>
+            <a href="/2016/11/20/ES6-Study-1/">ES6-study(二)</a>
           </li>
         
           <li>
@@ -188,7 +185,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 OnlySilva<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
