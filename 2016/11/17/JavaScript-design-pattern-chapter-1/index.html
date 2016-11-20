@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript design pattern chapter 1 | 新手的学习记录</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JavaScript是一门动态语言，变量类型要到程序运行的时候，等到变量被赋予某个值，才会具有某种类型。鸭子类型，只关注对象的行为，而不是对象的本身。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript design pattern chapter 1">
+<meta property="og:url" content="http://yoursite.com/2016/11/17/JavaScript-design-pattern-chapter-1/index.html">
+<meta property="og:site_name" content="新手的学习记录">
+<meta property="og:description" content="JavaScript是一门动态语言，变量类型要到程序运行的时候，等到变量被赋予某个值，才会具有某种类型。鸭子类型，只关注对象的行为，而不是对象的本身。">
+<meta property="og:updated_time" content="2016-11-20T11:44:03.173Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript design pattern chapter 1">
+<meta name="twitter:description" content="JavaScript是一门动态语言，变量类型要到程序运行的时候，等到变量被赋予某个值，才会具有某种类型。鸭子类型，只关注对象的行为，而不是对象的本身。">
+  
+    <link rel="alternate" href="/atom.xml" title="新手的学习记录" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">新手的学习记录</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript-design-pattern-chapter-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/17/JavaScript-design-pattern-chapter-1/" class="article-date">
+  <time datetime="2016-11-17T06:27:19.000Z" itemprop="datePublished">2016-11-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript design pattern chapter 1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript是一门动态语言，变量类型要到程序运行的时候，等到变量被赋予某个值，才会具有某种类型。<br>鸭子类型，只关注对象的行为，而不是对象的本身。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">var duck = &#123;</div><div class="line">	duckSinging: function() &#123;</div><div class="line">		console.log(&apos;嘎嘎嘎&apos;);</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var chicken = &#123;</div><div class="line">	duckSinging: function() &#123;</div><div class="line">	    console.log(&apos;嘎嘎嘎&apos;);</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line">var choir = [];</div><div class="line">var joinChior = function(animal) &#123;</div><div class="line">	if(animal &amp;&amp; typeof animal.duckSinging === &apos;function&apos;) &#123;</div><div class="line">		choir.push(animal);</div><div class="line">		console.log(&apos;恭喜加入合唱团&apos;);</div><div class="line">		console.log(&apos;合唱团已有成员数量：&apos;+choir.length);</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line">joinChior(duck);</div><div class="line">joinChior(chicken);</div></pre></td></tr></table></figure></p>
+<p>动态语言原则：面向接口编程，而不是面向实现编程。</p>
+<hr>
+<p>多态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var makeSound = function(animal) &#123;</div><div class="line">	if( animal instanceof Duck) &#123;</div><div class="line">	    console.log(&apos;嘎嘎嘎&apos;);</div><div class="line">	&#125; else if(animal instanceof Chicken) &#123;</div><div class="line">		console.log(&apos;咯咯咯&apos;);</div><div class="line">	&#125;</div><div class="line">&#125;;</div><div class="line">var Duck = function()&#123;&#125;</div><div class="line">var Chicken = function() &#123;&#125;</div><div class="line">makeSound(new Duck());</div><div class="line">makeSound(new Chicken());</div></pre></td></tr></table></figure></p>
+<p>将做什么和怎么做分开，也就是将变化的事物和不变的事物分开。动物会叫是不变的，怎么叫是变化的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">var makeSound = function(animal) &#123;</div><div class="line">	animal.sound();</div><div class="line">&#125;;</div><div class="line">var Duck = function() &#123;&#125;</div><div class="line">Duck.prototype.sound = function() &#123;</div><div class="line">	console.log(&apos;嘎嘎嘎&apos;);</div><div class="line">&#125;;</div><div class="line">var Chicken = function() &#123;&#125;</div><div class="line">Chicken.prototype.sound = function() &#123;</div><div class="line">	console.log(&apos;咯咯咯&apos;);</div><div class="line">&#125;;</div><div class="line">makeSound(new Duck());</div><div class="line">makeSound(new Chicken());</div><div class="line">var Dog = function() &#123;&#125;</div><div class="line">Dog.prototype.sound = function() &#123;</div><div class="line">	console.log(&apos;汪汪汪&apos;);</div><div class="line">&#125;;</div><div class="line">makeSound(new Dog());</div></pre></td></tr></table></figure></p>
+<p>静态语言通过继承和抽象方法获得多态。</p>
+<blockquote>
+<p>多态最根本的好处在于你不必根据对象是什么类型再根据类型调用行为，只需要直接调用该行为就行。</p>
+</blockquote>
+<hr>
+<p>封装<br>封装数据、类型、实现、变化。</p>
+<hr>
+<p>原型模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Object.create() = Object.create || function(obj) &#123;</div><div class="line">	var F = function()&#123;&#125;</div><div class="line">	F.prototype = obj;</div><div class="line">	return new F();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>原型编程范例规则：</p>
+<ol>
+<li>所有数据都是对象；</li>
+<li>要得到一个对象，不是通过实例化，而是找到一个对象作为原型并克隆它；</li>
+<li>对象会记住它的原型；</li>
+<li>如果对象无法响应请求，它会把这个请求委托给自己的原型。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function Person(name) &#123;</div><div class="line">	this.name = name;</div><div class="line">&#125;</div><div class="line">Person.prototype.getName = function() &#123;</div><div class="line">	return this.name;</div><div class="line">&#125;</div><div class="line">var objectFactory = function() &#123;</div><div class="line">	var obj = new Object();</div><div class="line">	var Constructor = Array.prototype.shift.call(arguments);</div><div class="line">	obj.__proto__ = Constructor;</div><div class="line">	var ret = Constructor.call(obj, arguments);</div><div class="line">&#125;;</div><div class="line">var a = objectFactory(Person, &apos;sven&apos;);//等价于new Person()</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/17/JavaScript-design-pattern-chapter-1/" data-id="civqlpilt00019wwhgdb2l2y2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/11/18/ES6-study-2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ES6-study(二)
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/20/ES6-Study-1/">ES6-Study-1</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/18/ES6-study-2/">ES6-study(二)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/17/JavaScript-design-pattern-chapter-1/">JavaScript design pattern chapter 1</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 OnlySilva<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

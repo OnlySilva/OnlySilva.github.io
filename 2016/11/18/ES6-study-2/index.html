@@ -3,14 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>新手的学习记录</title>
+  <title>ES6-study(二) | 新手的学习记录</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="新手的学习记录">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="来源：http://es6.ruanyifeng.com/#docs/destructuring
+变量的解构赋值数组的解构赋值es6允许下面var [a,b,c] = [1,2,3];本质上属于模式匹配，只要等号两边的模式相同，左边的变量就会赋予对应的值。123let [head, ...tail] = [1, 2, 3, 4];head // 1tail // [2, 3, 4]
+结构不成功，就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6-study(二)">
+<meta property="og:url" content="http://yoursite.com/2016/11/18/ES6-study-2/index.html">
 <meta property="og:site_name" content="新手的学习记录">
+<meta property="og:description" content="来源：http://es6.ruanyifeng.com/#docs/destructuring
+变量的解构赋值数组的解构赋值es6允许下面var [a,b,c] = [1,2,3];本质上属于模式匹配，只要等号两边的模式相同，左边的变量就会赋予对应的值。123let [head, ...tail] = [1, 2, 3, 4];head // 1tail // [2, 3, 4]
+结构不成功，就">
+<meta property="og:updated_time" content="2016-11-20T11:45:14.159Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="新手的学习记录">
+<meta name="twitter:title" content="ES6-study(二)">
+<meta name="twitter:description" content="来源：http://es6.ruanyifeng.com/#docs/destructuring
+变量的解构赋值数组的解构赋值es6允许下面var [a,b,c] = [1,2,3];本质上属于模式匹配，只要等号两边的模式相同，左边的变量就会赋予对应的值。123let [head, ...tail] = [1, 2, 3, 4];head // 1tail // [2, 3, 4]
+结构不成功，就">
   
     <link rel="alternate" href="/atom.xml" title="新手的学习记录" type="application/atom+xml">
   
@@ -59,54 +69,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-ES6-Study-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/20/ES6-Study-1/" class="article-date">
-  <time datetime="2016-11-20T11:09:30.000Z" itemprop="datePublished">2016-11-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/20/ES6-Study-1/">ES6-Study-1</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>let和const命令</p>
-<h2 id="来源：http-es6-ruanyifeng-com-docs-let"><a href="#来源：http-es6-ruanyifeng-com-docs-let" class="headerlink" title="来源：http://es6.ruanyifeng.com/#docs/let"></a>来源：<a href="http://es6.ruanyifeng.com/#docs/let" target="_blank" rel="external">http://es6.ruanyifeng.com/#docs/let</a></h2><p>let指令使得JavaScript多出了块作用域，适用于for循环之中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">for(let i = 0; i &lt; 10; i++)&#123;&#125;</div><div class="line">console.log(i);//referenceError: i is not defined</div></pre></td></tr></table></figure></p>
-<p>下面的代码如果使用var，最后输出10<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var a = [];</div><div class="line">for (var i = 0; i &lt; 10; i++) &#123;</div><div class="line">  a[i] = function () &#123;</div><div class="line">    console.log(i);</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line">a[6](); // 10</div></pre></td></tr></table></figure></p>
-<p>因为i是全局变量，函数又异步执行，所以执行时输出i当前的值。而let就不会，因为当前i只在当轮循环有效，下一个循环又是一个新的变量了。<br>let不会导致变量提升，但是又会绑定当前作用域，所以导致暂时性死区。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">if (true) &#123;</div><div class="line">  // TDZ开始</div><div class="line">  tmp = &apos;abc&apos;; // ReferenceError</div><div class="line">  console.log(tmp); // ReferenceError</div><div class="line"></div><div class="line">  let tmp; // TDZ结束</div><div class="line">  console.log(tmp); // undefined</div><div class="line"></div><div class="line">  tmp = 123;</div><div class="line">  console.log(tmp); // 123</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>在暂时性死区之中，typeof也不再是安全操作，而之前即使没定义变量，也会输出undefined。<br>let不允许在相同作用域内，重复声明同一个变量。<br>不要在块级作用域内部声明函数。</p>
-<hr>
-<p>const与let相似，指定一个对象时，对象内容可以改变，不能指向其他对象。</p>
-<hr>
-<p>var function声明的变量输入window，而let const则不属于。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/20/ES6-Study-1/" data-id="civqlpiln00009wwhiv0dgzfq" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ES6-study-2" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-ES6-study-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/11/18/ES6-study-2/" class="article-date">
   <time datetime="2016-11-18T01:18:23.000Z" itemprop="datePublished">2016-11-18</time>
@@ -119,8 +82,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/18/ES6-study-2/">ES6-study(二)</a>
+    <h1 class="article-title" itemprop="name">
+      ES6-study(二)
     </h1>
   
 
@@ -149,51 +112,28 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-JavaScript-design-pattern-chapter-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/17/JavaScript-design-pattern-chapter-1/" class="article-date">
-  <time datetime="2016-11-17T06:27:19.000Z" itemprop="datePublished">2016-11-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2016/11/20/ES6-Study-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
+          ES6-Study-1
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/17/JavaScript-design-pattern-chapter-1/">JavaScript design pattern chapter 1</a>
-    </h1>
   
+    <a href="/2016/11/17/JavaScript-design-pattern-chapter-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript design pattern chapter 1</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JavaScript是一门动态语言，变量类型要到程序运行的时候，等到变量被赋予某个值，才会具有某种类型。<br>鸭子类型，只关注对象的行为，而不是对象的本身。<br>
-        
-          <p class="article-more-link">
-            <a href="/2016/11/17/JavaScript-design-pattern-chapter-1/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/17/JavaScript-design-pattern-chapter-1/" data-id="civqlpilt00019wwhgdb2l2y2" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
 
 </section>
         
